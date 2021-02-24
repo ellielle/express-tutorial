@@ -1,0 +1,16 @@
+<%- include("../views/layout.ejs") %>
+<h1><%= title %></h1>
+<form action="" method="POST">
+  <div class="form-group">
+    <label for="name">Genre:</label>
+    <input type="text" name="name" placeholder="Fantasy, Poetry, etc" class="form-control" value="<%= !locals.genre ? '' : genre.name %>">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+<% if (locals.errors) { %>
+  <ul>
+    <% errors.forEach(error => { %>
+     <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+ <% } %>

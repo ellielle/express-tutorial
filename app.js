@@ -11,7 +11,7 @@ var catalogRouter = require("./routes/catalog");
 
 var app = express();
 var mongoose = require("mongoose");
-var mongoDB = `mongodb+srv://ragnarabo:VWaDpDKsemmFdrse@cluster0.kmaj0.mongodb.net/local_library?retryWrites=true&w=majority`;
+var mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
